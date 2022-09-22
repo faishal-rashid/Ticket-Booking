@@ -7,26 +7,38 @@ const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie-option');
 let ticketPrice = +movieSelect.value;
 
-let counter = 0;
 
+// const arr = [2,3,9]
 
+// arr.forEach((item) =>{
+//     console.log(seats[item].classList.add('selected'))
+// })
 
+function saveMovieData(item){
+    localStorage.setItem('movieIndex', item.target.selectedIndex);
+    localStorage.setItem('moviePrice', item.target.value);
+}
 
 function updateSeat(){
     const selectedSeats = document.querySelectorAll('.row .seat.selected');
     const selectedSeatsLength = selectedSeats.length;
 
+    const seatIndex = [...selectedSeats].map(function(seat){
+        return [...seats].indexOf(seat);
+    }) 
+    localStorage.setItem('selectedSeats', JSON.stringify(seatIndex));
+
     totalSeat.innerText = selectedSeatsLength;
-    
     total.innerText = selectedSeatsLength * ticketPrice;
 }
+
 
 movieSelect.addEventListener('change', (e)=>{
     const newPrice= +e.target.value;
     ticketPrice = newPrice;
     updateSeat() 
-}
-)
+    saveMovieData(e)
+})
 
 
 container.addEventListener('click', (e) =>{

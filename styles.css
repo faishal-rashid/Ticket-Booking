@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #242333;
+    background-color: #674747;
     font-family: 'Lato', sans-serif;
     color: white;
     margin: 0;
@@ -37,7 +37,7 @@ select {
 }
 
 .seat.selected{
-    background-color: #6faef6;
+    background-color: #FA7070;
 }
 
 .seat:not(.occupied):hover{
@@ -54,7 +54,7 @@ select {
 .seat{
     height: 12px;
     width: 15px;
-    background-color: #444451;
+    background-color: #A1C298;
     margin: 3px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
